@@ -27,7 +27,7 @@ def test_헤더만_있으면_빈_결과가_나온다():
     (101, False),  # 경계 바로 위
 ])
 def test_점수_경계값(점수, 유효한가):
-    with open("임시.csv", "w") as f:
-        f.write(f"점수\n{점수}")
+    with open("임시.csv", "w", encoding="utf-8") as f:
+        f.write(f"이름,점수\n홍길동,{점수}")
     kept, skipped = load_scores("임시.csv")
     assert (len(kept) == 1) == 유효한가
